@@ -15,11 +15,11 @@ func calculate(a, b int, op string) (float64, error) {
 		return float64(a * b), nil
 	case "/":
 		if b == 0 {
-			return 0, errors.New("Division by zero\n")
+			return 0, errors.New("Division by zero")
 		}
 		return float64(a) / float64(b), nil
 	default:
-		return 0, errors.New("Invalid operation\n")
+		return 0, errors.New("Invalid operation")
 	}
 }
 
