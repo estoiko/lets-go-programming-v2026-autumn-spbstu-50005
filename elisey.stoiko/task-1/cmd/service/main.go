@@ -5,6 +5,11 @@ import (
 	"fmt"
 )
 
+var (
+	ErrDivisonByZero   = errors.New("division by zero")
+	ErrInvalidOperator = errors.New("invalid operation")
+)
+
 func calculate(a, b int, op string) (float64, error) {
 	switch op {
 	case "+":
@@ -15,11 +20,11 @@ func calculate(a, b int, op string) (float64, error) {
 		return float64(a * b), nil
 	case "/":
 		if b == 0 {
-			return 0, errors.New("Division by zero")
+			return 0, ErrDivisonByZero
 		}
 		return float64(a) / float64(b), nil
 	default:
-		return 0, errors.New("Invalid operation")
+		return 0, ErrInvalidOperator
 	}
 }
 
@@ -40,7 +45,12 @@ func main() {
 
 	result, err := calculate(a, b, op)
 	if err != nil {
-		fmt.Println(err)
+		switch {
+		case errors.Is(err, ErrDivisonByZero):
+			fmt.Println("Division by zero")
+		case errors.Is(err, ErrInvalidOperator):
+			fmt.Println("Invalid operation")
+		}
 		return
 	}
 	fmt.Println(result)
