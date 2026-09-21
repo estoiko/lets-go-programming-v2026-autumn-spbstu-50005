@@ -42,7 +42,10 @@ func main() {
 		return
 	}
 
-	fmt.Scan(&op)
+	if _, err := fmt.Scan(&op); err != nil {
+		fmt.Println("Invalid operator")
+		return
+	}
 
 	result, err := calculate(a, b, op)
 	if err != nil {
