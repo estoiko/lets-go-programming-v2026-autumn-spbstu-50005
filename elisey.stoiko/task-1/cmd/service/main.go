@@ -31,18 +31,19 @@ func calculate(a, b int, op string) (int, error) {
 func main() {
 	var a, b int
 	var op string
+	var err error
 
-	if _, err := fmt.Scan(&a); err != nil {
+	if _, err = fmt.Scan(&a); err != nil {
 		fmt.Println("Invalid first operand")
 		return
 	}
 
-	if _, err := fmt.Scan(&b); err != nil {
+	if _, err = fmt.Scan(&b); err != nil {
 		fmt.Println("Invalid second operand")
 		return
 	}
 
-	if _, err := fmt.Scan(&op); err != nil {
+	if _, err = fmt.Scan(&op); err != nil {
 		fmt.Println("Invalid operator")
 		return
 	}
