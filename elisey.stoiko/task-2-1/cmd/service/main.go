@@ -32,6 +32,7 @@ func main() {
 
 	if _, err := fmt.Scan(&departments); err != nil {
 		fmt.Println("Error: invalid departments count:", err)
+
 		return
 	}
 
@@ -40,6 +41,7 @@ func main() {
 
 		if _, err := fmt.Scan(&workers); err != nil {
 			fmt.Println("Error: invalid workers count:", err)
+
 			return
 		}
 
@@ -51,6 +53,7 @@ func main() {
 
 			if _, err := fmt.Scan(&sign, &temp); err != nil {
 				fmt.Println("Error: invalid state:", err)
+
 				return
 			}
 
